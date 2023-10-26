@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.btn-primary {
+  @apply py-2 text-white transition-all duration-300 rounded px-7 bg-brandPrimary hover:bg-neutralDGray hover:-translate-y-4;
+}
+
+.cursorTransition {
+  @apply duration-300 ease-in-out cursor-pointer;
+}
+
+/* customizing carousel control */
+button[data-testid="carousel-left-control"] span,
+button[data-testid="carousel-right-control"] span {
+  display: none;
+}
+
+#heroCarousel svg {
+  fill: #4caf4f;
+  stroke: #4caf4f;
+}
+
+/* #heroCarousel div:nth-child(2) {
+  border: 2px solid gray;
+} */
+
+.nextSlide {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.activeSlide {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.lastSlide {
+  opacity: 0;
+  transform: translateX(-100%);
+}
