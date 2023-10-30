@@ -1,6 +1,8 @@
 import { Suspense, lazy, useState } from "react";
 import "./App.css";
 
+import Lottie from "lottie-react";
+import loading from "./assets/Animations/Animation - 1698693915107.json";
 const Navbar = lazy(() => import("./components/Navbar"));
 const Hero = lazy(() => import("./components/Hero"));
 const Services = lazy(() => import("./components/Services"));
@@ -12,7 +14,7 @@ const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<Lottie animationData={loading} />}>
       <Navbar />
       <Hero />
       <Services />
