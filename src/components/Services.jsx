@@ -12,6 +12,10 @@ import Logo7 from "../assets/Client_Logo/Client_Logo_7.png";
 /* Services Array from services.ts in data folder*/
 import { services } from "../data/services";
 
+/* Motion */
+import { motion } from "framer-motion";
+import { fadeIn } from "../animation";
+
 const Services = () => {
   return (
     <section
@@ -19,7 +23,14 @@ const Services = () => {
       className="px-4 py-16 mx-auto md:px-14 max-w-screen-2xl"
     >
       {/* Our Clients and Logo */}
-      <div id="our_clients" className="text-center">
+      <motion.div
+        id="our_clients"
+        variants={fadeIn("up", 0.2)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
+        className="text-center"
+      >
         <h2 className="mb-2 text-4xl font-semibold text-neutralDGray">
           Our Clients
         </h2>
@@ -37,18 +48,30 @@ const Services = () => {
           <img src={Logo6} alt="client logo 6" />
           <img src={Logo7} alt="client logo 7" />
         </div>
-      </div>
+      </motion.div>
 
       {/* Community */}
-      <div className="mx-auto mt-20 text-center md:w-1/2">
+      <motion.div
+        variants={fadeIn("left", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
+        className="mx-auto mt-20 text-center md:w-1/2"
+      >
         <h2 className="mb-3 text-4xl font-semibold text-neutralDGray">
           Manage your entire community in a single system
         </h2>
         <p className="text-neutralGray">Who is Nextcent suitable for?</p>
-      </div>
+      </motion.div>
 
       {/* NextCent Suitable Community  */}
-      <div className="flex flex-wrap items-center justify-center gap-12 mt-14 lg:grid lg:grid-cols-3">
+      <motion.div
+        variants={fadeIn("right", 0.4)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
+        className="flex flex-wrap items-center justify-center gap-12 mt-14 lg:grid lg:grid-cols-3"
+      >
         {services.map((service, index) => (
           <div
             key={service.id}
@@ -65,7 +88,7 @@ const Services = () => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };
