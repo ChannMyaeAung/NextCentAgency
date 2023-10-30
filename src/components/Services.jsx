@@ -66,10 +66,10 @@ const Services = () => {
 
       {/* NextCent Suitable Community  */}
       <motion.div
-        variants={fadeIn("right", 0.4)}
+        variants={fadeIn("right", 0.3)}
         initial="hidden"
         whileInView={"show"}
-        viewport={{ once: true, amount: 0.7 }}
+        viewport={{ once: true, amount: 0.5 }}
         className="flex flex-wrap items-center justify-center gap-12 mt-14 lg:grid lg:grid-cols-3"
       >
         {services.map((service, index) => (

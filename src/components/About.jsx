@@ -1,15 +1,31 @@
 import React, { Fragment } from "react";
 import aboutImg from "../assets/mobile_login.png";
 import { companyStats } from "../data/about";
+
+/* Motion */
+import { motion } from "framer-motion";
+import { fadeIn } from "../animation";
+
 const About = () => {
   return (
     <section id="about">
       <div className="px-4 mx-auto my-8 lg:px-14 max-w-screen-2xl">
         <div className="flex flex-col items-center justify-between gap-12 md:flex-row">
-          <figure>
+          <motion.figure
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.4 }}
+          >
             <img src={aboutImg} alt="mobile login image" />
-          </figure>
-          <div className="mx-auto md:w-3/4">
+          </motion.figure>
+          <motion.div
+            variants={fadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.4 }}
+            className="mx-auto md:w-3/4"
+          >
             <h2 className="mb-4 text-4xl font-semibold md:w-4/5 text-neutralDGray ">
               The unseen of spending three years at Pixelgrade
             </h2>
@@ -22,14 +38,20 @@ const About = () => {
               elementum pulvinar odio.
             </p>
             <button className="btn-primary">Learn More</button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       {/* Company Stats */}
       <div className="px-4 py-16 mx-auto bg-neutralSilver lg:px-14 max-w-screen-2xl">
         <div className="flex flex-col items-start justify-between gap-8 md:items-center md:flex-row">
-          <div className="md:w-1/2">
+          <motion.div
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.7 }}
+            className="md:w-1/2"
+          >
             <h2 className="mb-4 text-4xl font-semibold text-neutralDGray md:w-2/3">
               Helping a local{" "}
               <span className="text-brandPrimary">
@@ -37,9 +59,15 @@ const About = () => {
               </span>
             </h2>
             <p>We reached here with our hard work and dedication</p>
-          </div>
+          </motion.div>
 
-          <div className="grid gap-12 pr-4 mx-auto lg:grid-cols-2">
+          <motion.div
+            variants={fadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.7 }}
+            className="grid gap-12 pr-4 mx-auto lg:grid-cols-2"
+          >
             {companyStats.map((item, index) => (
               <div
                 key={item.id}
@@ -54,7 +82,7 @@ const About = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

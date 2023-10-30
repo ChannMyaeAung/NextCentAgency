@@ -12,15 +12,29 @@ import customerLogo6 from "../assets/Customers/customer_logo_6.svg";
 
 import arrowRight from "../assets/Customers/arrow_right.png";
 
+import { motion } from "framer-motion";
+import { fadeIn } from "../animation";
+
 const Products = () => {
   return (
     <section id="about">
       <div className="px-4 mx-auto my-10 lg:px-14 max-w-screen-2xl">
         <div className="flex flex-col items-center justify-between gap-12 md:flex-row">
-          <figure>
+          <motion.figure
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.7 }}
+          >
             <img src={mobileLoginTwo} alt="mobile login image two" />
-          </figure>
-          <div className="mx-auto md:w-3/4">
+          </motion.figure>
+          <motion.div
+            variants={fadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.7 }}
+            className="mx-auto md:w-3/4"
+          >
             <h2 className="mb-4 text-4xl font-semibold md:w-4/5 text-neutralDGray ">
               How to design your site footer like we did
             </h2>
@@ -36,21 +50,33 @@ const Products = () => {
               ipsum id gravida.
             </p>
             <button className="btn-primary">Learn More</button>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       <div className="px-4 py-16 mx-auto bg-neutralSilver lg:px-14 max-w-screen-2xl">
         <div className="flex flex-col items-center justify-between gap-8 md:items-start md:flex-row">
-          <figure className="w-auto h-auto">
+          <motion.figure
+            variants={fadeIn("right", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.7 }}
+            className="w-auto h-auto"
+          >
             <img
               src={customerLogoMain}
               alt="customer main logo"
               className="w-full h-full"
             />
-          </figure>
+          </motion.figure>
 
-          <div className="md:w-11/12">
+          <motion.div
+            variants={fadeIn("left", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.7 }}
+            className="md:w-11/12"
+          >
             <p className="mb-6 text-sm text-neutralGray">
               Maecenas dignissim justo eget nulla rutrum molestie. Maecenas
               lobortis sem dui, vel rutrum risus tincidunt ullamcorper. Proin eu
@@ -71,7 +97,13 @@ const Products = () => {
               British Dragon Boat Racing Association
             </p>
 
-            <div className="flex flex-wrap items-center lg:flex-nowrap lg:gap-x-6 gap-x-8 gap-y-4">
+            <motion.div
+              variants={fadeIn("up", 0.3)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: true, amount: 0.7 }}
+              className="flex flex-wrap items-center lg:flex-nowrap lg:gap-x-6 gap-x-8 gap-y-4"
+            >
               <img src={customerLogo1} alt="customer logo 1" />
               <img src={customerLogo2} alt="customer logo 2" />
               <img src={customerLogo3} alt="customer logo 3" />
@@ -92,8 +124,8 @@ const Products = () => {
                   />
                 </a>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

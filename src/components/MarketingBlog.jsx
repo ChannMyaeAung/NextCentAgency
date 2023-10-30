@@ -3,13 +3,22 @@ import { blogs } from "../data/blogs";
 
 import arrowRight from "../assets/Customers/arrow_right.png";
 
+import { motion } from "framer-motion";
+import { fadeIn } from "../animation";
+
 const MarketingBlog = () => {
   return (
     <section
       id="MarketingBlog"
       className="px-4 mx-auto my-12 lg:px-14 max-w-screen-2xl"
     >
-      <div className="mx-auto text-center md:w-1/2">
+      <motion.div
+        variants={fadeIn("up", 0.3)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.7 }}
+        className="mx-auto text-center md:w-1/2"
+      >
         <h2 className="mb-4 text-4xl font-semibold text-neutralDGray">
           Caring is the new marketing
         </h2>
@@ -19,12 +28,19 @@ const MarketingBlog = () => {
           how our community are increasing their membership income and lot's
           more.
         </p>
-      </div>
+      </motion.div>
 
       {/* All Blogs */}
       <div className="flex flex-wrap items-center justify-between gap-8 lg:grid-cols-3 md:grid md:grid-cols-2">
         {blogs.map((blog) => (
-          <div key={blog.id} className="relative mx-auto mb-12 cursor-pointer">
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: true, amount: 0.7 }}
+            key={blog.id}
+            className="relative mx-auto mb-12 cursor-pointer"
+          >
             <img
               src={blog.img}
               alt={blog.title}
@@ -49,7 +65,7 @@ const MarketingBlog = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
