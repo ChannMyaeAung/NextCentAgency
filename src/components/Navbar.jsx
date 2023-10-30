@@ -79,7 +79,7 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between gap-8 text-base">
           <a href="/" className="flex items-center space-x-3">
-            <img src={Logo} alt="logo" className="items-center inline-block" />
+            <img src={Logo} alt="logo" className="items-center inline-block " />
           </a>
 
           {/* For large screens */}
