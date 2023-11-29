@@ -5,6 +5,7 @@ import { companyStats } from "../data/about";
 /* Motion */
 import { motion } from "framer-motion";
 import { fadeIn } from "../animation";
+import NumberCounter from "./NumberCounter";
 
 const About = () => {
   return (
@@ -71,12 +72,16 @@ const About = () => {
             {companyStats.map((item, index) => (
               <div
                 key={item.id}
-                className="flex items-center justify-center flex-shrink-0 gap-4 border"
+                className="flex items-center justify-center flex-shrink-0 gap-4"
               >
                 <img src={item.img} alt={item.title} />
                 <div className="flex flex-col justify-between">
                   <h4 className="text-2xl font-semibold text-neutralDGray">
-                    {item.stats}
+                    <NumberCounter
+                      initialValue={0}
+                      endValue={item.stats}
+                      targetTimer={20}
+                    />
                   </h4>
                   <p className="whitespace-nowrap">{item.title}</p>
                 </div>
