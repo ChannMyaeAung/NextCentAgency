@@ -80,11 +80,11 @@ const Services = () => {
           style={{
             mask: "linear-gradient(90deg, transparent, white 20%, white 80%, transparent)",
           }}
-          className="max-w-[600px] overflow-hidden my-12"
+          className="max-w-[600px] w-full overflow-hidden my-12"
         >
           <div
             id="scroller__inner"
-            className="flex w-[max-content] items-center justify-between gap-8 py-4 "
+            className="flex w-[max-content] overflow-hidden items-center justify-between gap-8 py-4 "
           >
             <img src={Logo1} alt="client logo 1" />
             <img src={Logo2} alt="client logo 2" />
