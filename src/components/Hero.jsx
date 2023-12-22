@@ -30,7 +30,7 @@ const Hero = () => {
   /* Function to render hero section */
   function renderHeroSection() {
     return (
-      <section id="Hero" className="mt-20 overflow-hidden">
+      <section id="home" className="mt-20 overflow-hidden">
         <div className="relative flex h-[800px] md:h-[600px] bg-neutralSilver w-full">
           {heroData.map((item, heroIndex) => {
             const { id, img, heading, paragraph, button } = item;

@@ -18,7 +18,7 @@ import { fadeIn } from "../animation";
 const Products = () => {
   return (
     <section id="about">
-      <div className="px-4 mx-auto my-10 lg:px-14 max-w-screen-2xl">
+      <div className="w-full px-4 mx-auto my-10 max-w-screen-2xl">
         <div className="flex flex-col items-center justify-between gap-12 md:flex-row">
           <motion.figure
             variants={fadeIn("right", 0.3)}
@@ -54,7 +54,7 @@ const Products = () => {
         </div>
       </div>
 
-      <div className="px-4 py-16 mx-auto bg-neutralSilver lg:px-14 max-w-screen-2xl">
+      <div className="px-4 py-16 mx-auto overflow-hidden bg-neutralSilver max-w-screen-2xl">
         <div className="flex flex-col items-center justify-between gap-8 md:items-start md:flex-row">
           <motion.figure
             variants={fadeIn("right", 0.3)}
