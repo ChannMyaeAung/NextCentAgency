@@ -90,7 +90,7 @@ const Navbar = () => {
   ];
 
   return (
-    <header className="fixed left-0 top-0 right-0 bottom-0 w-full bg-white md:bg-transparent z-[999]">
+    <header className="fixed left-0 top-0 w-full bg-white md:bg-transparent z-[999]">
       <nav
         className={`px-4 py-4 w-full ${
           isSticky ? "sticky top-0 left-0 border-b bg-white duration-300" : ""
