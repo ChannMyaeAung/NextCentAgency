@@ -10,13 +10,14 @@ import NumberCounter from "./NumberCounter";
 const About = () => {
   return (
     <section id="about">
-      <div className="px-4 mx-auto my-8 lg:px-14 max-w-screen-2xl">
+      <div className="px-4 mx-auto my-8 max-w-screen-2xl lg:px-14">
         <div className="flex flex-col items-center justify-between gap-12 md:flex-row">
           <motion.figure
             variants={fadeIn("right", 0.3)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: true, amount: 0.4 }}
+            className="flex-shrink-0"
           >
             <img src={aboutImg} alt="mobile login image" />
           </motion.figure>
@@ -25,7 +26,7 @@ const About = () => {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: true, amount: 0.4 }}
-            className="mx-auto md:w-3/4"
+            className=" md:w-2/3"
           >
             <h2 className="mb-4 text-4xl font-semibold md:w-4/5 text-neutralDGray ">
               The unseen of spending three years at Pixelgrade

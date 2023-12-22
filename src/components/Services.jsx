@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 /* Company Logo Images */
 import Logo1 from "../assets/Client_Logo/Client_Logo_1.png";
@@ -17,6 +17,41 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../animation";
 
 const Services = () => {
+  /* Responsible for adding extra clone nodes to smooth out the infinite scroll animation */
+  useEffect(() => {
+    const scrollers = document.querySelectorAll("#scroller");
+
+    function addAnimation() {
+      scrollers.forEach((scroller) => {
+        const scrollerInner = scroller.querySelector("#scroller__inner");
+        const scrollerContent = Array.from(scrollerInner.children);
+
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          duplicatedItem.setAttribute("aria-hidden", true);
+          scrollerInner.appendChild(duplicatedItem);
+        });
+      });
+    }
+
+    addAnimation();
+
+    // Cleanup function: Remove cloned nodes when the component unmounts
+    return () => {
+      scrollers.forEach((scroller) => {
+        const scrollerInner = scroller.querySelector("#scroller__inner");
+        const scrollerContent = Array.from(scrollerInner.children);
+
+        // Remove the cloned nodes created during setup
+        scrollerContent.forEach((item) => {
+          if (item.getAttribute("aria-hidden")) {
+            scrollerInner.removeChild(item);
+          }
+        });
+      });
+    };
+  }, []);
+
   return (
     <section
       id="services"
@@ -29,7 +64,7 @@ const Services = () => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: true, amount: 0.7 }}
-        className="text-center"
+        className="flex flex-col items-center text-center"
       >
         <h2 className="mb-2 text-4xl font-semibold text-neutralDGray">
           Our Clients
@@ -39,14 +74,26 @@ const Services = () => {
         </p>
 
         {/* Company Logos */}
-        <div className="flex flex-wrap items-center justify-between gap-8 my-12">
-          <img src={Logo1} alt="client logo 1" />
-          <img src={Logo2} alt="client logo 2" />
-          <img src={Logo3} alt="client logo 3" />
-          <img src={Logo4} alt="client logo 4" />
-          <img src={Logo5} alt="client logo 5" />
-          <img src={Logo6} alt="client logo 6" />
-          <img src={Logo7} alt="client logo 7" />
+        {/* Note: Custom Animation classes are in App.css for better reusability */}
+        <div
+          id="scroller"
+          style={{
+            mask: "linear-gradient(90deg, transparent, white 20%, white 80%, transparent)",
+          }}
+          className="max-w-[600px] overflow-hidden my-12"
+        >
+          <div
+            id="scroller__inner"
+            className="flex w-[max-content] items-center justify-between gap-8 py-4 "
+          >
+            <img src={Logo1} alt="client logo 1" />
+            <img src={Logo2} alt="client logo 2" />
+            <img src={Logo3} alt="client logo 3" />
+            <img src={Logo4} alt="client logo 4" />
+            <img src={Logo5} alt="client logo 5" />
+            <img src={Logo6} alt="client logo 6" />
+            <img src={Logo7} alt="client logo 7" />
+          </div>
         </div>
       </motion.div>
 
