@@ -1,7 +1,6 @@
 import React, { useEffect, useState, Fragment, useRef } from "react";
 import Logo from "../assets/Logo.png";
 import { Link } from "react-scroll";
-import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
